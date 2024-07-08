@@ -141,32 +141,31 @@
         </header>
         <div class="m-5">
             <h3 class="text-green-900 text-xl font-bold ml-2 mt-3">Student Profile</h3>
-            <div class="flex flex-wrap justify-between mt-3">
-                <div class="flex flex-col w-full lg:w-1/2 p-4">
-                    <div class="bg-green-200 p-4 rounded-xl shadow-md">
-                        <div class="flex items-center gap-4">
-                            <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c27dc0a4-6276-4036-968e-51b70613de6d/dfbouue-a609b605-d553-4450-b56e-9cd707317231.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2MyN2RjMGE0LTYyNzYtNDAzNi05NjhlLTUxYjcwNjEzZGU2ZFwvZGZib3V1ZS1hNjA5YjYwNS1kNTUzLTQ0NTAtYjU2ZS05Y2Q3MDczMTcyMzEuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.49hw3fXDtkGsM1XMh3yk-kwhdUCeRfXTwtdeQnrfuZ0" alt="Profile" class="w-24 h-24 rounded-full" />
-                            <div>
-                                <h4 class="text-green-900 text-lg font-bold">John Doe</h4>
-                                <p class="text-green-900 text-sm font-medium leading-normal">Email: john.doe@example.com</p>
-                                <p class="text-green-900 text-sm font-medium leading-normal">Phone: +1 234 567 890</p>
-                                <p class="text-green-900 text-sm font-medium leading-normal">Status: Ongoing</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="bg-green-200 p-4 rounded-xl shadow-md mt-3">
-                            <h4 class="text-green-900 text-lg font-bold mb-2">Batch Details</h4>
-                            <div id="batch-details" class="mt-4">
-                                <p class="text-green-900 mb-2" id="batchID">Batch ID: 12345</p>
-                                <p class="text-green-900 mb-2" id="handlingInstructor">Handling Instructor: John Doe</p>
-                                <p class="text-green-900 mb-2" id="handlingCourse">Handling Course: Web Development</p>
-                            </div>
-                        </div>
+            <div class="flex flex-row justify-between w-full p-4">
+                <!-- Profile Section -->
+                <div class="bg-green-200 p-4 rounded-xl shadow-md flex w-full lg:w-1/3 mr-4">
+                    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c27dc0a4-6276-4036-968e-51b70613de6d/dfbouue-a609b605-d553-4450-b56e-9cd707317231.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2MyN2RjMGE0LTYyNzYtNDAzNi05NjhlLTUxYjcwNjEzZGU2ZFwvZGZib3V1ZS1hNjA5YjYwNS1kNTUzLTQ0NTAtYjU2ZS05Y2Q3MDczMTcyMzEuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.49hw3fXDtkGsM1XMh3yk-kwhdUCeRfXTwtdeQnrfuZ0" alt="Profile" class="w-24 h-24 rounded-full" />
+                    <div class="ml-4">
+                        <h4 class="text-green-900 text-lg font-bold">John Doe</h4>
+                        <p class="text-green-900 text-sm font-medium leading-normal">Email: john.doe@example.com</p>
+                        <p class="text-green-900 text-sm font-medium leading-normal">Phone: +1 234 567 890</p>
+                        <p class="text-green-900 text-sm font-medium leading-normal">Status: Ongoing</p>
                     </div>
                 </div>
-                <div class="flex flex-col w-full lg:w-1/2 p-4">
-                    <div class="bg-green-200 p-4 rounded-xl shadow-md">
+            
+                <!-- Batch Details Section -->
+                <div class="bg-green-200 p-4 rounded-xl shadow-md flex w-full lg:w-1/3 mt-4 lg:mt-0 mr-4">
+                    <div>
+                        <h4 class="text-green-900 text-lg font-bold mb-2">Batch Details</h4>
+                        <p class="text-green-900 mb-2" id="batchID">Batch ID: 12345</p>
+                        <p class="text-green-900 mb-2" id="handlingInstructor">Handling Instructor: John Doe</p>
+                        <p class="text-green-900 mb-2" id="handlingCourse">Handling Course: Web Development</p>
+                    </div>
+                </div>
+            
+                <!-- Student Performance Section -->
+                <div class="bg-green-200 p-4 rounded-xl shadow-md flex w-full lg:w-1/3 mt-4 lg:mt-0">
+                    <div>
                         <h4 class="text-green-900 text-lg font-bold mb-2">Student Performance</h4>
                         <p class="text-green-900 text-sm font-medium leading-normal"><strong>Attendance:</strong> 95%</p>
                         <p class="text-green-900 text-sm font-medium leading-normal"><strong>Daily Task Completion:</strong> 90%</p>
@@ -174,12 +173,17 @@
                     </div>
                 </div>
             </div>
+            
+            
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ml-4 mr-4">
                 <div class="bg-green-200 p-4 rounded-xl shadow-md">
                     <h4 class="text-green-900 text-lg font-bold mb-2">Mock Interview 1 Remarks</h4>
                     <p class="text-green-900 text-sm font-medium leading-normal">Great performance in the mock interviews. Needs to work on time management and problem-solving skills.</p>
                     <p class="text-green-900 text-sm font-medium leading-normal">Recording Link: <a href="https://drive.google.com/your-drive-link">https://drive.google.com/your-drive-link</a></p>
                     <h4 class="text-green-900 text-lg font-bold mb-2 mt-2">Mock Interview 2 Remarks</h4>
+                    <p class="text-green-900 text-sm font-medium leading-normal">Great performance in the mock interviews. Needs to work on time management and problem-solving skills.</p>
+                    <p class="text-green-900 text-sm font-medium leading-normal">Recording Link: <a href="https://drive.google.com/your-drive-link">https://drive.google.com/your-drive-link</a></p>
+                    <h4 class="text-green-900 text-lg font-bold mb-2 mt-2">Mock Interview 3 Remarks</h4>
                     <p class="text-green-900 text-sm font-medium leading-normal">Great performance in the mock interviews. Needs to work on time management and problem-solving skills.</p>
                     <p class="text-green-900 text-sm font-medium leading-normal">Recording Link: <a href="https://drive.google.com/your-drive-link">https://drive.google.com/your-drive-link</a></p>
                 </div>
@@ -190,9 +194,15 @@
                     <h4 class="text-green-900 text-lg font-bold mb-2 mt-2">Course 2</h4>
                     <p class="text-green-900 text-sm font-medium leading-normal">Cyber Security.</p>
                     <p class="text-green-900 text-sm font-medium leading-normal">Certificate Link: <a href="https://drive.google.com/your-drive-link">https://drive.google.com/your-drive-link</a></p>
+                    <h4 class="text-green-900 text-lg font-bold mb-2 mt-2">Course 3</h4>
+                    <p class="text-green-900 text-sm font-medium leading-normal">Cyber Security.</p>
+                    <p class="text-green-900 text-sm font-medium leading-normal">Certificate Link: <a href="https://drive.google.com/your-drive-link">https://drive.google.com/your-drive-link</a></p>
                 </div>
                 <div class="bg-green-200 p-4 rounded-xl shadow-md">
                     <h4 class="text-green-900 text-lg font-bold mb-2">Project 1</h4>
+                    <p class="text-green-900 text-sm font-medium leading-normal">Project Name</p>
+                    <p class="text-green-900 text-sm font-medium leading-normal">GitHub Link: <a href="https://drive.google.com/your-drive-link">https://drive.google.com/your-drive-link</a></p>
+                    <h4 class="text-green-900 text-lg font-bold mb-2 mt-2">Project 2</h4>
                     <p class="text-green-900 text-sm font-medium leading-normal">Project Name</p>
                     <p class="text-green-900 text-sm font-medium leading-normal">GitHub Link: <a href="https://drive.google.com/your-drive-link">https://drive.google.com/your-drive-link</a></p>
                     <h4 class="text-green-900 text-lg font-bold mb-2 mt-2">Project 2</h4>
