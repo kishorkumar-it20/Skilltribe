@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Work+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+    <title>Galileo Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style>
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1; 
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0); 
+            background-color: rgba(0,0,0,0.4); 
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="font-poppins bg-[#e6efe6]">
+    <div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden font-poppins">
+        <div class="layout-container flex h-full grow flex-col">
+            <header class="flex items-center whitespace-nowrap border-b border-solid border-b-[#f0f3f4] px-10 py-3">
+                <div class="flex items-center gap-8">
+                    <div class="flex items-center gap-4 text-[#111517]">
+                        <img src="images/logo.png" alt="" class="mt-1 w-16 h-16"/>
+                    </div>
+                    <div class="flex items-center gap-9">
+                        <a class="text-[#1b7b20] text-xl font-medium uppercase" href="Coursemanagement.html">Courses</a>
+                        <a class="text-[#1b7b20] text-xl font-medium uppercase" href="Batchmanagement.html">Batch</a>
+                        <a class="text-[#1b7b20] text-xl font-medium uppercase" href="Studentsdetails.html">Students</a>
+                        <a class="text-[#1b7b20] text-xl font-medium uppercase" href="Instructorinfo.html">Instructor</a>
+                        <a class="text-[#1b7b20] text-xl font-medium uppercase" href="paymentstatus.html">Payment</a>
+                    </div>
+                </div>
+                <div class="flex flex-1 justify-end gap-8">
+                    <label class="flex flex-col min-w-40 !h-10 max-w-64">
+                        <div class="flex w-full flex-1 items-stretch rounded-xl h-full">
+                            <div class="text-[#647987] flex border-none bg-[#f0f3f4] items-center justify-center pl-4 rounded-l-xl border-r-0" data-icon="MagnifyingGlass" data-size="24px" data-weight="regular">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                                    <path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
+                                </svg>
+                            </div>
+                            <input placeholder="Search" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111517] focus:outline-0 focus:ring-0 border-none bg-[#f0f3f4] focus:border-none h-full placeholder:text-[#647987] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" value=""/>
+                        </div>
+                    </label>
+                    <div class="flex gap-2">
+                        <button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 bg-[#f0f3f4] text-[#111517] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+                            <div class="text-[#111517]" data-icon="Bell" data-size="20px" data-weight="regular">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                                    <path d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"></path>
+                                </svg>
+                            </div>
+                        </button>
+                        <button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 bg-[#f0f3f4] text-[#111517] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+                            <div class="text-[#111517]" data-icon="Table" data-size="20px" data-weight="regular">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                                    <path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM40,112H80v32H40Zm56,0H216v32H96ZM216,64V96H40V64ZM40,160H80v32H40Zm176,32H96V160H216v32Z"></path>
+                                </svg>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="w-8 h-8 text-[#647987]">
+                        <img src="https://i.pinimg.com/736x/af/0d/7c/af0d7c8ce434deb503432cc5fce2c326.jpg" loading="lazy" class="max-w-full object-cover rounded-full" alt="Placeholder"/>
+                    </div>
+                </div>
+            </header>
+            <div class="layout-content-container flex flex-col max-w-[9060px] flex-1">
+                <div class="flex flex-wrap justify-between gap-3 p-4">
+                    <p class="text-green-900 tracking-light text-[32px] font-bold leading-tight min-w-72">Instructor Details</p>
+                    <button class="flex items-center justify-center h-10 px-4 bg-green-600 text-white rounded-xl" onclick="openModal()">New Instructor</button>
+                </div>
+                <div class="flex flex-col gap-5 px-4 pt-4">
+                    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                        <table class="w-full text-sm text-left divide-gray-200">
+                            <thead class="text-md uppercase bg-green-900 text-white">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3">InstructorID</th>
+                                    <th scope="col" class="px-6 py-3">InstructorName</th>
+                                    <th scope="col" class="px-6 py-3">Email</th>
+                                    <th scope="col" class="px-6 py-3">Mobile No</th>
+                                    <th scope="col" class="px-6 py-3">Gender</th>
+                                    <th scope="col" class="px-6 py-3">Address</th>
+                                    <th scope="col" class="px-6 py-3">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="StuTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="newStuModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2 class="mb-4">Add New Batch</h2>
+                <form id="newStudentForm" class="space-y-4">
+                    <div class="mb-4">
+                        <label for="InstructorID" class="block text-green-700 font-bold mb-2">InstructorID</label>
+                        <input type="text" id="InstructorID" class="form-input w-full" required readonly/>
+                    </div>
+                    <div>
+                        <label for="stuName" class="block text-sm font-medium text-gray-700">Name</label>
+                        <input type="text" id="stuName" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                        <input type="email" id="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Mobile No</label>
+                        <input type="number" id="mobile" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Specialization</label>
+                        <input type="text" id="Specialization" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Gender</label>
+                        <div class="mt-2">
+                            <label class="inline-flex items-center">
+                                <input type="radio" name="gender" value="male" class="form-radio" required>
+                                <span class="ml-2">Male</span>
+                            </label>
+                            <label class="inline-flex items-center ml-6">
+                                <input type="radio" name="gender" value="female" class="form-radio" required>
+                                <span class="ml-2">Female</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Address</label>
+                        <textarea id="address" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Add Instructor</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        async function addInstructor(event) {
+            event.preventDefault();
+    
+            const name = document.getElementById("stuName").value;
+            const email = document.getElementById("email").value;
+            const mobile = document.getElementById("mobile").value;
+            const gender = document.querySelector('input[name="gender"]:checked').value;
+            const address = document.getElementById("address").value;
+            const specialization = document.getElementById("Specialization").value;
+    
+            const response = await fetch('http://localhost:5000/api/instructors', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, mobile, gender, address, specialization })
+            });
+    
+            if (response.ok) {
+               alert("Instructor Added Successfully!..")
+            } else {
+                alert('Error adding instructor');
+            }
+        }
+
+        async function fetchAndDisplayInstructor() {
+            try {
+                const response = await fetch('http://localhost:5000/api/instructors/get');
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch courses: ${response.statusText}`);
+                }
+                const Instructor = await response.json();
+                const InstructorTable = document.getElementById('StuTableBody');
+                InstructorTable.innerHTML = ''; // Clear existing content
+        
+                Instructor.forEach(instructors => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td class="px-6 py-4 whitespace-nowrap">${instructors.instructorID}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">${instructors.name}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">${instructors.email}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">${instructors.mobile}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">${instructors.gender}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">${instructors.address}</td>
+                        <td class="px-6 py-3">
+                            <select class="status-dropdown" data-instructor-id="${instructors._id}">
+                                <option value="Active" ${instructors.status === 'Active' ? 'selected' : ''}>Active</option>
+                                <option value="Hold" ${instructors.status === 'Hold' ? 'selected' : ''}>Hold</option>
+                                <option value="Complete" ${instructors.status === 'Complete' ? 'selected' : ''}>Complete</option>
+                            </select>
+                        </td>
+                    `;
+                    InstructorTable.appendChild(row);
+                  });
+        
+                // Add event listeners to dropdowns
+                const dropdowns = document.querySelectorAll('.status-dropdown');
+                dropdowns.forEach(dropdown => {
+                    dropdown.addEventListener('change', handleStatusChange);
+                });
+            } catch (error) {
+                console.error('Error fetching Instructor:', error);
+            }
+        }
+    
+        document.getElementById('newStudentForm').addEventListener('submit', addInstructor);
+    
+        function openModal() {
+            document.getElementById('newStuModal').style.display = 'block';
+        }
+    
+        function closeModal() {
+            document.getElementById('newStuModal').style.display = 'none';
+        }
+        async function handleStatusChange(event) {
+            const dropdown = event.target;
+            const instructorID = dropdown.getAttribute('data-instructor-id'); // Use getAttribute
+            const newStatus = dropdown.value;
+        
+            console.log('Instructor ID:', instructorID); // Debug log
+        
+            if (!instructorID) {
+                console.error('Instructor ID is not defined');
+                return;
+            }
+        
+            try {
+                const response = await fetch(`http://localhost:5000/api/instructors/Instructor/${instructorID}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ status: newStatus })
+                });
+                if (!response.ok) {
+                    throw new Error(`Failed to update status: ${response.statusText}`);
+                }
+                console.log(`Instructor ${instructorID} status updated to ${newStatus}`);
+            } catch (error) {
+                console.error('Error updating status:', error);
+            }
+        }
+        
+        
+        // Fetch and display courses when the page loads
+        document.addEventListener('DOMContentLoaded', fetchAndDisplayInstructor);
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Work+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+    <title>Admin Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+</head>
+<body class="font-poppins bg-[#e6efe6]">
+    <div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden font-poppins">
+        <div class="layout-container flex h-full grow flex-col">
+            <!-- Header Section -->
+            <header class="flex items-center whitespace-nowrap border-b border-solid border-b-[#f0f3f4] px-10 py-3">
+                <div class="flex items-center gap-8">
+                    <div class="flex items-center gap-4 text-[#111517]">
+                        <img src="images/logo.png" alt="" class="mt-1 w-16 h-16"/>
+                    </div>
+                    <div class="flex items-center gap-9">
+                        <a class="text-[#1b7b20] text-xl font-medium uppercase" href="Coursemanagement.html">Courses</a>
+                        <a class="text-[#1b7b20] text-xl font-medium uppercase" href="Batchmanagement.html">Batch</a>
+                        <a class="text-[#1b7b20] text-xl font-medium uppercase" href="Studentsdetails.html">Students</a>
+                        <a class="text-[#1b7b20] text-xl font-medium uppercase" href="Instructorinfo.html">Instructor</a>
+                    </div>
+                </div>
+                <div class="flex flex-1 justify-end gap-8">
+                    <label class="flex flex-col min-w-40 !h-10 max-w-64">
+                        <div class="flex w-full flex-1 items-stretch rounded-xl h-full">
+                            <div class="text-[#647987] flex border-none bg-[#f0f3f4] items-center justify-center pl-4 rounded-l-xl border-r-0" data-icon="MagnifyingGlass" data-size="24px" data-weight="regular">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                                    <path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
+                                </svg>
+                            </div>
+                            <input placeholder="Search" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111517] focus:outline-0 focus:ring-0 border-none bg-[#f0f3f4] focus:border-none h-full placeholder:text-[#647987] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" value=""/>
+                        </div>
+                    </label>
+                    <div class="flex gap-2">
+                        <button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 bg-[#f0f3f4] text-[#111517] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+                            <div class="text-[#111517]" data-icon="Bell" data-size="20px" data-weight="regular">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                                    <path d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"></path>
+                                </svg>
+                            </div>
+                        </button>
+                        <button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 bg-[#f0f3f4] text-[#111517] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+                            <div class="text-[#111517]" data-icon="Table" data-size="20px" data-weight="regular">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                                    <path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM40,112H80v32H40Zm56,0H216v32H96ZM216,64V96H40V64ZM40,160H80v32H40Zm176,32H96V160H216v32Z"></path>
+                                </svg>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="w-8 h-8 text-[#647987]">
+                        <img src="https://i.pinimg.com/736x/af/0d/7c/af0d7c8ce434deb503432cc5fce2c326.jpg" loading="lazy" class="max-w-full object-cover rounded-full" alt="Placeholder"/>
+                    </div>
+                </div>
+            </header>
+            <!-- Main Content Section -->
+            <main class="flex flex-1 flex-col p-10">
+                <h1 class="text-3xl font-bold text-[#1b7b20] mb-6">Courses</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <!-- Course Card -->
+                    <div class="bg-[#e0eee1]  rounded-lg shadow p-6">
+                        <img src="https://media.licdn.com/dms/image/D5612AQGAMi4w_PjJDQ/article-cover_image-shrink_720_1280/0/1686232557204?e=2147483647&v=beta&t=yLGIJZUvTYNxauXSOc7tvbpdJxvndQNpIB48Ge_9aPg" alt="Course Image" class="w-full h-32 object-cover rounded-lg mb-4"/>
+                        <h2 class="text-2xl font-semibold text-[#1b7b20] mb-2">Course Name</h2>
+                        <p class="text-[#1b7b20] mb-4">Course Description goes here. It should be brief and informative.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="inline-block bg-yellow-200 text-green-800 text-xs px-2 py-1 rounded-full">Ongoing</span>
+                            <span class="text-sm text-[#1b7b20]">Enrolled: 30</span>
+                        </div>
+                    </div>
+                    <div class="bg-[#e0eee1]  rounded-lg shadow p-6">
+                        <img src="https://media.licdn.com/dms/image/D5612AQGAMi4w_PjJDQ/article-cover_image-shrink_720_1280/0/1686232557204?e=2147483647&v=beta&t=yLGIJZUvTYNxauXSOc7tvbpdJxvndQNpIB48Ge_9aPg" alt="Course Image" class="w-full h-32 object-cover rounded-lg mb-4"/>
+                        <h2 class="text-2xl font-semibold text-[#1b7b20] mb-2">Course Name</h2>
+                        <p class="text-[#1b7b20] mb-4">Course Description goes here. It should be brief and informative.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="inline-block bg-yellow-200 text-green-800 text-xs px-2 py-1 rounded-full">Ongoing</span>
+                            <span class="text-sm text-[#1b7b20]">Enrolled: 30</span>
+                        </div>
+                    </div>
+                    <div class="bg-[#e0eee1]  rounded-lg shadow p-6">
+                        <img src="https://cms.digitalpolygon.com/sites/default/files/2022-07/Digital-marketing-banner.jpg" alt="Course Image" class="w-full h-32 object-cover rounded-lg mb-4"/>
+                        <h2 class="text-2xl font-semibold text-[#1b7b20] mb-2">Course Name</h2>
+                        <p class="text-[#1b7b20] mb-4">Course Description goes here. It should be brief and informative.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="inline-block bg-yellow-200 text-green-800 text-xs px-2 py-1 rounded-full">Ongoing</span>
+                            <span class="text-sm text-[#1b7b20]">Enrolled: 30</span>
+                        </div>
+                    </div>
+                    <div class="bg-[#e0eee1]  rounded-lg shadow p-6">
+                        <img src="https://cms.digitalpolygon.com/sites/default/files/2022-07/Digital-marketing-banner.jpg" alt="Course Image" class="w-full h-32 object-cover rounded-lg mb-4"/>
+                        <h2 class="text-2xl font-semibold text-[#1b7b20] mb-2">Course Name</h2>
+                        <p class="text-[#1b7b20] mb-4">Course Description goes here. It should be brief and informative.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="inline-block bg-yellow-200 text-green-800 text-xs px-2 py-1 rounded-full">Ongoing</span>
+                            <span class="text-sm text-[#1b7b20]">Enrolled: 30</span>
+                            <a class="text-[#1b7b20] text-xl font-medium uppercase" href="#">view more</a>
+                        </div>
+                    </div>
+                    <!-- Add more course cards as needed -->
+                </div>
+                <!-- Current Batches Section -->
+                <h1 class="text-3xl font-bold text-[#1b7b20] mt-12 mb-6">Current Batches</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Batch Card -->
+                    <div class="bg-[#e0eee1]  rounded-lg shadow p-6">
+                        <h2 class="text-2xl font-semibold text-[#1b7b20] mb-2">Batch Name</h2>
+                        <p class="text-[#1b7b20] mb-4">Batch Description goes here. It should be brief and informative.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="inline-block bg-green-200 text-green-800 text-xs px-2 py-1 rounded-full">Active</span>
+                            <span class="text-sm text-[#1b7b20]">Students: 25</span>
+                            <a class="text-[#1b7b20] text-md font-medium" href="Batch.html">view more</a>
+                        </div>
+                    </div>
+                    <div class="bg-[#e0eee1]  rounded-lg shadow p-6">
+                        <h2 class="text-2xl font-semibold text-[#1b7b20] mb-2">Batch Name</h2>
+                        <p class="text-[#1b7b20] mb-4">Batch Description goes here. It should be brief and informative.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="inline-block bg-green-200 text-green-800 text-xs px-2 py-1 rounded-full">Active</span>
+                            <span class="text-sm text-[#1b7b20]">Students: 25</span>
+                            <a class="text-[#1b7b20] text-md font-medium" href="Batch.html">view more</a>
+                        </div>
+                    </div>
+                    <div class="bg-[#e0eee1]  rounded-lg shadow p-6">
+                        <h2 class="text-2xl font-semibold text-[#1b7b20] mb-2">Batch Name</h2>
+                        <p class="text-[#1b7b20] mb-4">Batch Description goes here. It should be brief and informative.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="inline-block bg-green-200 text-green-800 text-xs px-2 py-1 rounded-full">Active</span>
+                            <span class="text-sm text-[#1b7b20]">Students: 25</span>
+                            <a class="text-[#1b7b20] text-md font-medium" href="Batch.html">view more</a>
+                        </div>
+                    </div>
+                    <div class="bg-[#e0eee1]  rounded-lg shadow p-6">
+                        <h2 class="text-2xl font-semibold text-[#1b7b20] mb-2">Batch Name</h2>
+                        <p class="text-[#1b7b20] mb-4">Batch Description goes here. It should be brief and informative.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="inline-block bg-green-200 text-green-800 text-xs px-2 py-1 rounded-full">Active</span>
+                            <span class="text-sm text-[#1b7b20]">Students: 25</span>
+                            <a class="text-[#1b7b20] text-md font-medium" href="Batch.html">view more</a>
+                        </div>
+                    </div>
+                    <!-- Add more batch cards as needed -->
+                </div>
+                <!-- Instructors Section -->
+                <div class="mt-5">
+                    <h1 class="text-3xl font-bold text-[#1b7b20] mt-12 mb-6">Today's Tasks</h1>
+                    <div class="overflow-x-auto">
+                        <table id="tasks-table" class="min-w-full bg-[#e0eee1] rounded-lg shadow">
+                            <thead class="bg-[#1b7b20] text-white">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xl font-semibold">Task Name</th>
+                                    <th class="px-6 py-3 text-left text-xl font-semibold">Batch ID</th>
+                                    <th class="px-6 py-3 text-left text-xl font-semibold">Course ID</th>
+                                    <th class="px-6 py-3 text-left text-xl font-semibold">Instructor</th>
+                                    <th class="px-6 py-3 text-left text-xl font-semibold">Details</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200">
+                                <!-- Task rows here -->
+                                <tr class="task-row bg-white hover:bg-gray-100 cursor-pointer">
+                                    <td class="px-6 py-4 whitespace-nowrap text-lg text-[#1b7b20] font-semibold">Task Name</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-lg text-[#1b7b20]">Batch1</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-lg text-[#1b7b20]">Course1</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-lg text-[#1b7b20]">Instructor Name</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-lg text-[#1b7b20]">
+                                        <a href="#" class="underline">View More</a>
+                                    </td>
+                                </tr>
+                                <tr class="task-row bg-white hover:bg-gray-100 cursor-pointer">
+                                    <td class="px-6 py-4 whitespace-nowrap text-lg text-[#1b7b20] font-semibold">Task Name</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-lg text-[#1b7b20]">Batch1</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-lg text-[#1b7b20]">Course1</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-lg text-[#1b7b20]">Instructor Name</td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-lg text-[#1b7b20]">
+                                        <a href="#" class="underline">View More</a>
+                                    </td>
+                                </tr>
+                                <!-- Add more rows as needed -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <h1 class="text-3xl font-bold text-[#1b7b20] mt-12 mb-6">Instructors</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Instructor Card -->
+                    <div class="bg-[#e0eee1] rounded-lg shadow p-6">
+                        <div class="flex items-center mb-4">
+                            <img src="https://img.freepik.com/premium-photo/anime-girl_950633-1297.jpg" alt="Instructor Image" class="w-12 h-12 object-cover rounded-full mr-4"/>
+                            <div>
+                                <h2 class="text-xl font-semibold text-[#1b7b20]">Instructor Name</h2>
+                                <p class="text-[#1b7b20]">Specialization</p>
+                            </div>
+                        </div>
+                        <p class="text-[#1b7b20]">Bio or brief introduction goes here. It should be brief and informative.</p>
+                    </div>
+                    <div class="bg-[#e0eee1] rounded-lg shadow p-6">
+                        <div class="flex items-center mb-4">
+                            <img src="https://img.freepik.com/premium-photo/anime-girl_950633-1297.jpg" alt="Instructor Image" class="w-12 h-12 object-cover rounded-full mr-4"/>
+                            <div>
+                                <h2 class="text-xl font-semibold text-[#1b7b20]">Instructor Name</h2>
+                                <p class="text-[#1b7b20]">Specialization</p>
+                            </div>
+                        </div>
+                        <p class="text-[#1b7b20]">Bio or brief introduction goes here. It should be brief and informative.</p>
+                    </div>
+                    <div class="bg-[#e0eee1] rounded-lg shadow p-6">
+                        <div class="flex items-center mb-4">
+                            <img src="https://img.freepik.com/premium-photo/anime-girl_950633-1297.jpg" alt="Instructor Image" class="w-12 h-12 object-cover rounded-full mr-4"/>
+                            <div>
+                                <h2 class="text-xl font-semibold text-[#1b7b20]">Instructor Name</h2>
+                                <p class="text-[#1b7b20]">Specialization</p>
+                            </div>
+                        </div>
+                        <p class="text-[#1b7b20]">Bio or brief introduction goes here. It should be brief and informative.</p>
+                    </div>
+                    <div class="bg-[#e0eee1] rounded-lg shadow p-6">
+                        <div class="flex items-center mb-4">
+                            <img src="https://img.freepik.com/premium-photo/anime-girl_950633-1297.jpg" alt="Instructor Image" class="w-12 h-12 object-cover rounded-full mr-4"/>
+                            <div>
+                                <h2 class="text-xl font-semibold text-[#1b7b20]">Instructor Name</h2>
+                                <p class="text-[#1b7b20]">Specialization</p>
+                            </div>
+                        </div>  
+                        <p class="text-[#1b7b20]">Bio or brief introduction goes here. It should be brief and informative.</p>
+                    </div>
+                    <!-- Add more instructor cards as needed -->
+                </div>
+            </main>
+        </div>
+    </div>
+    <script>
+        const rows = document.querySelectorAll('#tasks-table tbody tr.task-row');
+
+        // Add event listeners for hover effect
+        rows.forEach(row => {
+            row.addEventListener('mouseenter', () => {
+                row.classList.add('bg-gray-100');
+            });
+
+            row.addEventListener('mouseleave', () => {
+                row.classList.remove('bg-gray-100');
+            });
+
+            // Add click functionality (example: alert on click)
+            row.addEventListener('click', () => {
+                alert('You clicked on a task! Implement your logic here.');
+            });
+        });
+    </script>
+</body>
+</html>

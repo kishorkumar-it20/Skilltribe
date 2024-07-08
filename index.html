@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link rel="stylesheet" as="style" onload="this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Lexend%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" />
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style>
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .hover-grow:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="relative flex size-full min-h-screen flex-col bg-green-100 group/design-root overflow-x-hidden" style='font-family: Lexend, "Noto Sans", sans-serif;'>
+    <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-green-200 px-10 py-3 bg-green-100 fade-in">
+            <div class="flex items-center gap-4 text-green-900">
+                <img src="images/logo.png" alt="Logo" class="mt-1 w-16 h-16 hover-grow" />
+            </div>
+            <div class="flex flex-1 justify-end gap-8">
+                <div class="flex items-center gap-9">
+                    <a class="text-green-700 text-sm font-medium leading-normal hover:text-green-900 transition-colors" href="index.html">My Courses</a>
+                    <a class="text-green-700 text-sm font-medium leading-normal hover:text-green-900 transition-colors" href="Dailyupdates.html">Daily Updates</a>
+                    <a class="text-green-700 text-sm font-medium leading-normal hover:text-green-900 transition-colors" href="Weekly.html">Week Updates</a>
+                </div>
+                <div class="flex gap-2">
+                    <button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 bg-green-200 text-green-900 gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5 hover:bg-green-300 transition-colors">
+                        <div class="text-green-900">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                                <path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
+                            </svg>
+                        </div>
+                    </button>
+                    <button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 bg-green-200 text-green-900 gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5 hover:bg-green-300 transition-colors">
+                        <div class="text-green-900">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                                <path d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"></path>
+                            </svg>
+                        </div>
+                    </button>
+                </div>
+                <button class="flex min-w-[84px] max-w-[80px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-green-800 text-yellow-50 text-sm font-bold leading-normal tracking-[0.015em] flex-1 hover:bg-green-900 transition-colors">
+                    <span class="truncate">Login</span>
+                </button>
+            </div>
+        </header>
+        <div class="gap-1 flex flex-1 justify-between px-10 py-5">
+            <div class="layout-content-container flex flex-col max-w-[1720px] flex-1">
+                <div class="flex flex-wrap justify-between gap-3 p-4 fade-in">
+                    <p class="text-green-900 tracking-light text-[32px] font-bold leading-tight min-w-72">Mern Stack</p>
+                </div>
+                <p class="text-green-700 text-sm font-normal leading-normal pb-3 pt-1 px-4">Course ID: 001</p>
+                <div class="flex flex-col lg:flex-row gap-6 px-4">
+                    <div class="flex-1">
+                        <p class="text-green-900 text-base font-normal leading-normal pb-3 pt-1">
+                            The MERN stack is a powerful and widely-used technology stack for building full-stack web applications. It consists of four main components: MongoDB, Express.js, React, and Node.js.
+                            MongoDB is a NoSQL database that provides a flexible and scalable way to store data, using a JSON-like format. Express.js is a web application framework for Node.js, designed to simplify the process of building web applications and APIs. React is a JavaScript library developed by Facebook for building user interfaces, especially for single-page applications. Node.js is a JavaScript runtime environment that executes JavaScript code outside of a web browser, allowing for server-side scripting.
+                            Together, these technologies cover the entire development stack, from front-end to back-end. React handles the user interface and user experience, while Express.js provides server-side logic and manages communication between the front-end and the MongoDB database. Node.js serves as the runtime environment for the server-side code, ensuring efficient handling of requests and responses.
+                        </p>
+                    </div>
+                    <div class="ml-20 flex-shrink-0 w-full lg:w-1/3 bg-green-100 p-4 rounded-xl shadow-md">
+                        <h3 class="text-green-900 text-xl font-bold mb-4">Instructor Profile</h3>
+                        <div class="flex items-center gap-4">
+                            <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c27dc0a4-6276-4036-968e-51b70613de6d/dfbouue-a609b605-d553-4450-b56e-9cd707317231.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2MyN2RjMGE0LTYyNzYtNDAzNi05NjhlLTUxYjcwNjEzZGU2ZFwvZGZib3V1ZS1hNjA5YjYwNS1kNTUzLTQ0NTAtYjU2ZS05Y2Q3MDczMTcyMzEuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.49hw3fXDtkGsM1XMh3yk-kwhdUCeRfXTwtdeQnrfuZ0" alt="Instructor Image" class="w-24 h-24 rounded-full object-cover shadow-lg">
+                            <div>
+                                <p class="text-green-900 text-lg font-bold">John Doe</p>
+                                <p class="text-green-700 text-sm">Senior Full-Stack Developer with 10+ years of experience in web development. Expert in MERN stack and passionate about teaching.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pb-3 fade-in">
+                    <div class="flex border-b border-green-200 px-4 gap-8">
+                        <a class="flex flex-col items-center justify-center border-b-[3px] border-green-600 text-green-900 pb-[13px] pt-4" href="#">
+                            <p class="text-green-900 text-sm font-bold leading-normal tracking-[0.015em]">Syllabus</p>
+                        </a>
+                    </div>
+                </div>
+                <h2 class="text-green-900 text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5 fade-in">Week 1: MongoDB</h2>
+                <div class="flex gap-4 bg-green-100 px-4 py-3 justify-between fade-in hover:bg-green-200 transition-colors">
+                    <div class="flex items-start gap-4">
+                        <div class="text-green-900 flex items-center justify-center rounded-lg bg-green-200 shrink-0 size-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                                <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Z"></path>
+                            </svg>
+                        </div>
+                        <div class="flex flex-1 flex-col justify-center">
+                            <p class="text-green-900 text-base font-medium leading-normal">Day 1: Introduction to MongoDB</p>
+                        </div>
+                    </div>
+                    <button class="flex cursor-pointer items-center justify-center rounded-xl h-9 px-3 bg-yellow-500 text-yellow-50 text-sm font-bold leading-normal tracking-[0.015em] hover:bg-green-900 transition-colors">
+                        <span class="truncate">View Daily Task</span>
+                    </button>
+                </div>
+                <div class="flex gap-4 bg-green-100 px-4 py-3 justify-between fade-in hover:bg-green-200 transition-colors">
+                    <div class="flex items-start gap-4">
+                        <div class="text-green-900 flex items-center justify-center rounded-lg bg-green-200 shrink-0 size-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                                <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Z"></path>
+                            </svg>
+                        </div>
+                        <div class="flex flex-1 flex-col justify-center">
+                            <p class="text-green-900 text-base font-medium leading-normal">Day 2: MongoDB CRUD Operations</p>
+                        </div>
+                    </div>
+                    <button class="flex cursor-pointer items-center justify-center rounded-xl h-9 px-3 bg-yellow-500 text-yellow-50 text-sm font-bold leading-normal tracking-[0.015em] hover:bg-green-900 transition-colors">
+                        <span class="truncate">View Daily Task</span>
+                    </button>
+                </div>
+                <div class="flex gap-4 bg-green-100 px-4 py-3 justify-between fade-in hover:bg-green-200 transition-colors">
+                    <div class="flex items-start gap-4">
+                        <div class="text-green-900 flex items-center justify-center rounded-lg bg-green-200 shrink-0 size-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                                <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Z"></path>
+                            </svg>
+                        </div>
+                        <div class="flex flex-1 flex-col justify-center">
+                            <p class="text-green-900 text-base font-medium leading-normal">Day 3: MongoDB Aggregation Framework</p>
+                        </div>
+                    </div>
+                    <button class="flex cursor-pointer items-center justify-center rounded-xl h-9 px-3 bg-yellow-500 text-yellow-50 text-sm font-bold leading-normal tracking-[0.015em] hover:bg-green-900 transition-colors">
+                        <span class="truncate">View Daily Task</span>
+                    </button>
+                </div>
+                <div class="flex gap-4 bg-green-100 px-4 py-3 justify-between fade-in hover:bg-green-200 transition-colors">
+                    <div class="flex items-start gap-4">
+                        <div class="text-green-900 flex items-center justify-center rounded-lg bg-green-200 shrink-0 size-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                                <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Z"></path>
+                            </svg>
+                        </div>
+                        <div class="flex flex-1 flex-col justify-center">
+                            <p class="text-green-900 text-base font-medium leading-normal">Day 4: Indexing and Performance Optimization</p>
+                        </div>
+                    </div>
+                    <button class="flex cursor-pointer items-center justify-center rounded-xl h-9 px-3 bg-yellow-500 text-yellow-50 text-sm font-bold leading-normal tracking-[0.015em] hover:bg-green-900 transition-colors">
+                        <span class="truncate">View Daily Task</span>
+                    </button>
+                </div>
+                <div class="flex gap-4 bg-green-100 px-4 py-3 justify-between fade-in hover:bg-green-200 transition-colors">
+                    <div class="flex items-start gap-4">
+                        <div class="text-green-900 flex items-center justify-center rounded-lg bg-green-200 shrink-0 size-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                                <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Z"></path>
+                            </svg>
+                        </div>
+                        <div class="flex flex-1 flex-col justify-center">
+                            <p class="text-green-900 text-base font-medium leading-normal">Day 5: Replication and Sharding</p>
+                        </div>
+                    </div>
+                    <button class="flex cursor-pointer items-center justify-center rounded-xl h-9 px-3 bg-yellow-500 text-yellow-50 text-sm font-bold leading-normal tracking-[0.015em] hover:bg-green-900 transition-colors">
+                        <span class="truncate">View Daily Task</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

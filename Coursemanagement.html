@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Management</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link rel="stylesheet" as="style" onload="this.rel='stylesheet'"href="https://fonts.googleapis.com/css2?display=swap&family=Manrope:wght@400;500;700;800&family=Noto+Sans:wght@400;500;700;900">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style>
+        body {
+            transition: background-color 0.2s linear;
+          }
+      
+          .dark {
+            background-color: #292c35; 
+          }
+      
+          .checkbox {
+            opacity: 0;
+            position: absolute;
+          }
+      
+          .checkbox-label {
+            background-color: #111;
+            width: 50px;
+            height: 26px;
+            border-radius: 50px;
+            position: relative;
+            padding: 5px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+      
+          .fa-moon {
+            color: #f1c40f;
+          }
+      
+          .fa-sun {
+            color: #f39c12;
+          }
+      
+          .checkbox-label .ball {
+            background-color: #fff;
+            width: 22px;
+            height: 22px;
+            position: absolute;
+            left: 2px;
+            top: 2px;
+            border-radius: 50%;
+            transition: transform 0.2s linear;
+          }
+      
+          .checkbox:checked + .checkbox-label .ball {
+            transform: translateX(24px);
+          }
+        @container (max-width: 120px) {
+            .table-8fcc3622-7274-46fc-a713-335b501fd805-column-120 {
+                display: none;
+            }
+        }
+
+        @container (max-width: 240px) {
+            .table-8fcc3622-7274-46fc-a713-335b501fd805-column-240 {
+                display: none;
+            }
+        }
+
+        @container (max-width: 360px) {
+            .table-8fcc3622-7274-46fc-a713-335b501fd805-column-360 {
+                display: none;
+            }
+        }
+
+        @container (max-width: 480px) {
+            .table-8fcc3622-7274-46fc-a713-335b501fd805-column-480 {
+                display: none;
+            }
+        }
+
+        .fixed-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 50;
+            transition: transform 0.3s;
+        }
+
+        .fixed-button:hover {
+            transform: scale(1.1);
+        }
+
+        .form-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+            z-index: 50;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .form-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .form-modal .bg-white {
+            transform: scale(0.9);
+            transition: transform 0.3s;
+        }
+
+        .form-modal.active .bg-white {
+            transform: scale(1);
+        }
+
+        .form-input, .form-select {
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .form-input:focus, .form-select:focus {
+            background-color: #eef9f1;
+            color: #111517;
+        }
+
+        .table-row:hover {
+            background-color: #f7fcf8;
+        }
+
+        button {
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body class="font-poppins bg-[#e6efe6]">
+<div class="relative flex size-full w-full min-h-screen flex-col group/design-root overflow-x-hidden">
+    <div class="layout-container flex h-full grow flex-col">
+        <header
+            class="flex items-center justify-between whitespace-nowrap border-b border-b-[#f0f3f4] px-10 py-2">
+            <div class="flex gap-8">
+                <div class="flex gap-4 text-[#111517]">
+                    <img src="images/logo.png" alt="" class="mt-1 w-16 h-16"/>
+                </div>
+                <div class="flex items-center gap-9">
+                    <a class="text-[#1b7b20] text-xl font-medium uppercase" href="Coursemanagement.html">Courses</a>
+                        <a class="text-[#1b7b20] text-xl font-medium uppercase" href="Batchmanagement.html">Batch</a>
+                        <a class="text-[#1b7b20] text-xl font-medium uppercase" href="Studentsdetails.html">Students</a>
+                        <a class="text-[#1b7b20] text-xl font-medium uppercase" href="Instructorinfo.html">Instructor</a>
+                </div>
+            </div>
+            <div class="flex flex-1 justify-end gap-8">
+                <label class="flex flex-col min-w-40 !h-10 max-w-64">
+                    <div class="flex w-full flex-1 items-stretch rounded-xl h-full">
+                        <div class="text-[#647987] flex border-none bg-[#f0f3f4] items-center justify-center pl-4 rounded-l-xl border-r-0"
+                             data-icon="MagnifyingGlass" data-size="24px" data-weight="regular">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor"
+                                 viewBox="0 0 256 256">
+                                <path
+                                    d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
+                            </svg>
+                        </div>
+                        <input
+                            placeholder="Search"
+                            class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111517] focus:outline-0 focus:ring-0 border-none bg-[#f0f3f4] focus:border-none h-full placeholder:text-[#647987] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
+                            value=""/>
+                    </div>
+                </label>
+                <div class="mt-2">
+                    <input type="checkbox" class="checkbox" id="checkbox">
+                    <label for="checkbox" class="checkbox-label">
+                      <i class="fas fa-moon"></i>
+                      <i class="fas fa-sun"></i>
+                      <span class="ball"></span>
+                    </label>
+                  </div>
+                <div class="flex gap-2">
+                    <button
+                        class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 bg-[#f0f3f4] text-[#111517] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+                        <div class="text-[#111517]" data-icon="Bell" data-size="20px" data-weight="regular">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor"
+                                 viewBox="0 0 256 256">
+                                <path
+                                    d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"></path>
+                            </svg>
+                        </div>
+                    </button>
+                    <button
+                        class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 bg-[#f0f3f4] text-[#111517] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+                        <div class="text-[#111517]" data-icon="Table" data-size="20px" data-weight="regular">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor"
+                                 viewBox="0 0 256 256">
+                                <path
+                                    d="M224,48H32a8,8,0,0,0-8,8V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM40,112H80v32H40Zm56,0H216v32H96ZM216,64V96H40V64ZM40,160H80v32H40Zm176,32H96V160H216v32Z"></path>
+                            </svg>
+                        </div>
+                    </button>
+                </div>
+                <div class="w-8 h-8 text-[#647987]">
+                    <img src="https://i.pinimg.com/736x/af/0d/7c/af0d7c8ce434deb503432cc5fce2c326.jpg" loading="lazy" class="max-w-full object-cover w-16 h-10 rounded-full"
+                         alt="Placeholder"/>
+                </div>
+            </div>
+        </header>
+        <main class="flex flex-1 flex-col">
+            <div class="flex h-full grow flex-col items-start px-4 sm:px-6 md:px-10 py-8">
+                <div class="relative flex grow flex-col gap-8 items-start w-full">
+                    <h1 class="text-green-900 text-lg md:text-[2rem] md:leading-tight font-bold tracking-[-0.015em]">
+                        My Courses
+                    </h1>
+                    <div class="fixed-button">
+                        <button
+                            class="rounded-md bg-green-900 text-white p-4 shadow-lg hover:bg-green-600 focus:outline-none"
+                            onclick="toggleForm()">
+                            Add Course
+                        </button>
+                    </div>
+                    <div class="flex flex-col gap-5 px-1 pt-2 w-full">
+                        <div class="relative overflow-x-auto shadow-md sm:rounded-lg w-full bg-white text-black">
+                            <table class="w-full text-sm text-left divide-gray-200">
+                                <thead class="text-md uppercase bg-green-900 text-white">
+                                    <tr>
+                                        <th scope="col" class="px-6 py-3">Course Name</th>
+                                        <th scope="col" class="px-6 py-3">Course ID</th>
+                                        <th scope="col" class="px-6 py-3">Description</th>
+                                        <th scope="col" class="px-6 py-3">Syllabus</th>
+                                        <th scope="col" class="px-6 py-3">Duration (hours)</th>
+                                        <th scope="col" class="px-6 py-3">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="courseTableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="courseForm" class="form-modal">
+                        <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+                            <h2 class="text-2xl font-bold mb-4">Add Course</h2>
+                            <form onsubmit="addCourse(event)" id="coursedata">
+                                <div>
+                                    <label for="courseName" class="block text-sm font-medium text-gray-700">Course Name</label>
+                                    <input id="courseName" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" required/>
+                                        
+                                </div>
+                                <div class="mb-4">
+                                    <label for="courseID" class="block text-green-700 font-bold mb-2">Course ID</label>
+                                    <input type="text" id="courseID" class="form-input w-full" required readonly/>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="description" class="block text-green-700 font-bold mb-2">Description</label>
+                                    <input type="text" id="description" class="form-input w-full" required/>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="syllabus" class="block text-green-700 font-bold mb-2">Syllabus</label>
+                                    <input type="file" id="syllabus" class="form-input w-full" accept="application/pdf" required/>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="duration" class="block text-green-700 font-bold mb-2">Duration (hours)</label>
+                                    <input type="number" id="duration" class="form-input w-full" required/>
+                                </div>
+                                <div class="flex justify-between">
+                                    <button type="submit"
+                                            class="bg-green-900 text-white px-4 py-2 rounded hover:bg-green-600 focus:outline-none">
+                                        Add Course
+                                    </button>
+                                    <button type="button"
+                                            class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 focus:outline-none"
+                                            onclick="toggleForm()">
+                                        Cancel
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+<script>
+    function toggleForm() {
+        const formModal = document.getElementById('courseForm');
+        formModal.classList.toggle('active');
+    }
+    
+    async function addCourse(event) {
+        event.preventDefault();
+    
+        const courseName = document.getElementById("courseName").value;
+        const description = document.getElementById("description").value;
+        const syllabusFile = document.getElementById("syllabus").files[0];
+        const duration = document.getElementById("duration").value;
+    
+        if (!syllabusFile) {
+            alert("Please upload a syllabus PDF");
+            return;
+        }
+    
+        const reader = new FileReader();
+        reader.onload = async function(e) {
+            const syllabus = e.target.result;
+    
+            const response = await fetch('http://localhost:5000/api/courses', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ courseName, description, syllabus, duration, status: 'active' })
+            });
+    
+            const course = await response.json();
+            if (response.ok) {
+                alert('Course Added Successfully!');
+            } else {
+                alert(course.error);
+            }
+        };
+        reader.readAsDataURL(syllabusFile);
+    }
+    async function fetchAndDisplayCourse() {
+        try {
+            const response = await fetch('http://localhost:5000/api/courses/get');
+            if (!response.ok) {
+                throw new Error(`Failed to fetch courses: ${response.statusText}`);
+            }
+            const courses = await response.json();
+            const courseTable = document.getElementById('courseTableBody');
+            courseTable.innerHTML = ''; // Clear existing content
+    
+            courses.forEach(course => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap">${course.courseName}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">${course.courseID}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">${course.description}</td>
+                    <td class="px-6 py-4 whitespace-nowrap"><a href="${course.syllabus}" target="_blank">View Syllabus</a></td>
+                    <td class="px-6 py-4 whitespace-nowrap">${course.duration}</td>
+                    <td class="px-6 py-3">
+                        <select class="status-dropdown" data-course-id="${course._id}">
+                            <option value="Active" ${course.status === 'Active' ? 'selected' : ''}>Active</option>
+                            <option value="Hold" ${course.status === 'Hold' ? 'selected' : ''}>Hold</option>
+                            <option value="Complete" ${course.status === 'Complete' ? 'selected' : ''}>Complete</option>
+                        </select>
+                    </td>
+                `;
+                courseTable.appendChild(row);
+            });
+    
+            // Add event listeners to dropdowns
+            const dropdowns = document.querySelectorAll('.status-dropdown');
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener('change', handleStatusChange);
+            });
+        } catch (error) {
+            console.error('Error fetching courses:', error);
+        }
+    }
+    
+    async function handleStatusChange(event) {
+        const dropdown = event.target;
+        const courseId = dropdown.dataset.courseId;
+        const newStatus = dropdown.value;
+    
+        try {
+            const response = await fetch(`http://localhost:5000/api/courses/course/${courseId}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ status: newStatus })
+            });
+            if (!response.ok) {
+                throw new Error(`Failed to update status: ${response.statusText}`);
+            }
+            console.log(`Course ${courseId} status updated to ${newStatus}`);
+        } catch (error) {
+            console.error('Error updating status:', error);
+        }
+    }
+    
+    // Fetch and display courses when the page loads
+    document.addEventListener('DOMContentLoaded', fetchAndDisplayCourse);
+    
+</script>
+
+</body>
+</html>

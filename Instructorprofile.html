@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link rel="stylesheet" as="style" onload="this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Lexend%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" />
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style>
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .hover-grow:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+        .hidden {
+            display: none;
+        }
+        .full-width {
+            width: 100%;
+        }
+    </style>
+    <script>
+        function generateWeekDates() {
+            const today = new Date();
+            const dayOfWeek = today.getDay();
+            const daysFromMonday = (dayOfWeek + 6) % 7; // Monday is 0
+            const monday = new Date(today.setDate(today.getDate() - daysFromMonday));
+
+            const weekDates = [];
+            for (let i = 0; i < 6; i++) {
+                const day = new Date(monday);
+                day.setDate(monday.getDate() + i);
+                weekDates.push(day.toISOString().split('T')[0]);
+            }
+
+            return weekDates;
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const dates = generateWeekDates();
+            const dateHeaders = document.querySelectorAll(".date-header");
+            const dateInputs = document.querySelectorAll(".date-input");
+
+            dateHeaders.forEach((header, index) => {
+                if (dates[index]) {
+                    header.textContent = dates[index];
+                    dateInputs.forEach(input => {
+                        if (input.dataset.index == index) {
+                            input.value = dates[index];
+                        }
+                    });
+                }
+            });
+
+            const batchLinks = document.querySelectorAll(".batch-link");
+            const batchDetailsContainer = document.getElementById("batch-details");
+
+            batchLinks.forEach(link => {
+                link.addEventListener("click", function() {
+                    const batchId = this.dataset.batchId;
+                    const batchDetails = getBatchDetails(batchId);
+
+                    batchDetailsContainer.innerHTML = `
+                        <div class="bg-green-200 p-4 rounded-xl shadow-md mt-3">
+                            <h4 class="text-green-900 text-lg font-bold mb-2">Batch ${batchId} Details</h4>
+                            <p class="text-green-900 text-sm font-medium leading-normal"><strong>Instructor:</strong> John Doe</p>
+                            <p class="text-green-900 text-sm font-medium leading-normal"><strong>Number of Students:</strong> ${batchDetails.students}</p>
+                            <p class="text-green-900 text-sm font-medium leading-normal"><strong>Schedule:</strong> ${batchDetails.schedule}</p>
+                            <p class="text-green-900 text-sm font-medium leading-normal"><strong>Timings:</strong> ${batchDetails.timings}</p>
+                        </div>
+                    `;
+
+                    batchDetailsContainer.classList.remove("hidden");
+                    batchDetailsContainer.classList.add("full-width");
+                });
+            });
+
+            function getBatchDetails(batchId) {
+                const batchData = {
+                    "1": {
+                        students: 25,
+                        schedule: "Weekdays",
+                        timings: "10:00 AM - 12:00 PM"
+                    },
+                    "2": {
+                        students: 30,
+                        schedule: "Weekends",
+                        timings: "2:00 PM - 4:00 PM"
+                    },
+                    "3": {
+                        students: 20,
+                        schedule: "Mixed",
+                        timings: "6:00 PM - 8:00 PM"
+                    }
+                };
+
+                return batchData[batchId];
+            }
+        });
+    </script>
+</head>
+<body class="relative flex size-full min-h-screen flex-col bg-green-100 group/design-root overflow-x-hidden" style='font-family: Lexend, "Noto Sans", sans-serif;'>
+    <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-green-200 px-10 py-3 bg-green-100 fade-in">
+            <div class="flex items-center gap-4 text-green-900">
+                <img src="images/logo.png" alt="Logo" class="mt-1 w-16 h-16 hover-grow" />7
+            </div>
+            <div class="flex flex-1 justify-end gap-8">
+                <div class="flex items-center gap-9">
+                    <a class="text-green-700 text-sm font-medium leading-normal hover:text-green-900 transition-colors" href="Instructorprofile.html">My Profile</a>
+                    <a class="text-green-700 text-sm font-medium leading-normal hover:text-green-900 transition-colors" href="AssignTsk.html">Assign-DailyTask</a>
+                    <a class="text-green-700 text-sm font-medium leading-normal hover:text-green-900 transition-colors" href="AssignWeekly.html">Weekly Task</a>
+                </div>
+                <div class="flex gap-2">
+                    <button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 bg-green-200 text-green-900 gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5 hover:bg-green-300 transition-colors">
+                        <div class="text-green-900">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                                <path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
+                            </svg>
+                        </div>
+                    </button>
+                    <button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 bg-green-200 text-green-900 gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5 hover:bg-green-300 transition-colors">
+                        <div class="text-green-900">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                                <path d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"></path>
+                            </svg>
+                        </div>
+                    </button>
+                </div>
+                <div class="flex items-center gap-4 text-green-900">
+                    <img src="images/logo.png" alt="Logo" class="mt-1 w-12 h-12 hover-grow" />
+                </div>
+            </div>
+        </header>
+        <h3 class="text-green-900 text-xl font-bold ml-10 mt-3">Instructor Profile</h3>
+        <div class="flex flex-wrap justify-between mt-3">
+            <div class="flex flex-col w-full lg:w-1/2 p-4">
+                <div class="bg-green-200 p-4 rounded-xl shadow-md">
+                    <div class="flex items-center gap-4">
+                        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c27dc0a4-6276-4036-968e-51b70613de6d/dfbouue-a609b605-d553-4450-b56e-9cd707317231.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2MyN2RjMGE0LTYyNzYtNDAzNi05NjhlLTUxYjcwNjEzZGU2ZFwvZGZib3V1ZS1hNjA5YjYwNS1kNTUzLTQ0NTAtYjU2ZS05Y2Q3MDczMTcyMzEuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.49hw3fXDtkGsM1XMh3yk-kwhdUCeRfXTwtdeQnrfuZ0" alt="Instructor Image" class="w-24 h-24 rounded-full object-cover shadow-lg">
+                        <div>
+                            <p class="text-green-900 text-lg font-bold">John Doe</p>
+                            <p class="text-green-700 text-sm">Senior Full-Stack Developer with 10+ years of experience in web development. Expert in MERN stack and passionate about teaching.</p>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-green-900 text-sm font-medium leading-normal"><strong>ID:</strong> INST001</p>
+                            <p class="text-green-900 text-sm font-medium leading-normal"><strong>Specialization:</strong> Full-Stack Development</p>
+                            <p class="text-green-900 text-sm font-medium leading-normal"><strong>Description:</strong> John has been teaching web development for over a decade. His classes are known for their practical approach and real-world examples.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-green-200 p-4 rounded-xl shadow-md mt-5">
+                    <h4 class="text-green-900 text-lg font-bold mb-2">Contact Details</h4>
+                    <p class="text-green-900 text-sm font-medium leading-normal"><strong>Mobile:</strong> (123) 456-7890</p>
+                    <p class="text-green-900 text-sm font-medium leading-normal"><strong>Email:</strong> john.doe@example.com</p>
+                </div>
+            </div>
+            <div class="flex flex-col w-full lg:w-1/2 p-4">
+                <div class="bg-green-200 p-4 rounded-xl shadow-md">
+                    <h4 class="text-green-900 text-lg font-bold mb-2">Ongoing Batches</h4>
+                    <ul class="list-disc list-inside text-green-900 text-sm font-medium leading-normal">
+                        <li><a href="#" class="batch-link text-green-700 hover:text-green-900 transition-colors" data-batch-id="1">Batch 1</a></li>
+                        <li><a href="#" class="batch-link text-green-700 hover:text-green-900 transition-colors" data-batch-id="2">Batch 2</a></li>
+                        <li><a href="#" class="batch-link text-green-700 hover:text-green-900 transition-colors" data-batch-id="3">Batch 3</a></li>
+                    </ul>
+                </div>
+                <div id="batch-details" class="hidden"></div>
+            </div>
+        </div>
+        <div class="bg-green-200 p-4 rounded-xl shadow-md mt-3 ml-10 mr-10">
+            <h4 class="text-green-900 text-lg font-bold mb-2">Student Records</h4>
+            <table class="table-auto w-full text-green-900 text-sm font-medium leading-normal">
+                <thead>
+                    <tr>
+                        <th class="px-4 py-2">Student Name</th>
+                        <th class="px-4 py-2">Course</th>
+                        <th class="px-4 py-2 date-header">Date 1</th>
+                        <th class="px-4 py-2 date-header">Date 2</th>
+                        <th class="px-4 py-2 date-header">Date 3</th>
+                        <th class="px-4 py-2 date-header">Date 4</th>
+                        <th class="px-4 py-2 date-header">Date 5</th>
+                        <th class="px-4 py-2 date-header">Date 6</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="border px-4 py-2">Student 1</td>
+                        <td class="border px-4 py-2">Course 1</td>
+                        <td class="border px-4 py-2"><input type="checkbox" class="date-input" data-index="0"></td>
+                        <td class="border px-4 py-2"><input type="checkbox" class="date-input" data-index="1"></td>
+                        <td class="border px-4 py-2"><input type="checkbox" class="date-input" data-index="2"></td>
+                        <td class="border px-4 py-2"><input type="checkbox" class="date-input" data-index="3"></td>
+                        <td class="border px-4 py-2"><input type="checkbox" class="date-input" data-index="4"></td>
+                        <td class="border px-4 py-2"><input type="checkbox" class="date-input" data-index="5"></td>
+                    </tr>
+                    <tr>
+                        <td class="border px-4 py-2">Student 2</td>
+                        <td class="border px-4 py-2">Course 2</td>
+                        <td class="border px-4 py-2"><input type="checkbox" class="date-input" data-index="0"></td>
+                        <td class="border px-4 py-2"><input type="checkbox" class="date-input" data-index="1"></td>
+                        <td class="border px-4 py-2"><input type="checkbox" class="date-input" data-index="2"></td>
+                        <td class="border px-4 py-2"><input type="checkbox" class="date-input" data-index="3"></td>
+                        <td class="border px-4 py-2"><input type="checkbox" class="date-input" data-index="4"></td>
+                        <td class="border px-4 py-2"><input type="checkbox" class="date-input" data-index="5"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
